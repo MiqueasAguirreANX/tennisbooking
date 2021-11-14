@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<div id="map"></div>
+
+
+{% endblock %}
+{% block extra_js %}
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script
+  src="https://maps.googleapis.com/maps/api/js?key={{google_api_key}}&callback=initMap&v=weekly"
+  async
+></script>
+<!-- <script src="{% static 'js/home.js' %}"></script> -->
+{% endblock %}
