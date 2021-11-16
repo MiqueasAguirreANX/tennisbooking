@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+{% load static %}
+
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="card m-4 p-4 is-flex is-flex-direction-row is-justify-content-center" style="width: 350px; margin: auto!important;">
+    <form action="{% url 'pages:tennis-login' %}" method="POST" style="width: 100%;">
+        {% csrf_token %}
+        <div class="field">
+            <label class="label">Username</label>
+            <div class="control">
+              <input class="input" type="text" name="username" placeholder="e.g Alex Smith">
+            </div>
+        </div>
+        
+        <div class="field">
+            <label class="label">Password</label>
+            <div class="control">
+                <input class="input" type="password" name="password">
+            </div>
+        </div>
+        <br>
+        <div class="control">
+            <button type="submit" class="button is-primary">Login</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+
+{% block extra_js %}
+{% endblock %}

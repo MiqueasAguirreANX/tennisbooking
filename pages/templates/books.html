@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+{% load static %}
+
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/books.css' %}">
+{% endblock %}
+
+
+{% block content %}
+{% for booked in dates_booked %}
+<div class="card m-4 p-4">
+    {{ booked.court.name }} - {{ booked.date }}
+    <br>
+    <div class="is-flex mt-3">
+        <a class="button is-info" href="/court-details/{{ booked.court.pk }}/">See in the map</a>
+        <a class="button is-danger mx-3" href="/delete-booked/{{ booked.pk }}/">Delete</a>
+    </div>
+    
+</div>
+{% endfor %}
+<br><br>
+{% endblock %}
+
+
+{% block extra_js %}
+{% endblock %}

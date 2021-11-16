@@ -1,0 +1,55 @@
+.map-grid {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    grid-template-rows: auto;
+    height: 100%;
+}
+
+#map {
+    height: 100%;
+}
+
+.add-court-panel {
+    padding: 10px;
+}
+
+.add-court-panel-title {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.add-court-modal-background {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(31, 31, 31, 0.219);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-court-modal {
+    background-color: rgba(255, 255, 255, 0.87);
+    height: 250px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.buttons-group {
+    margin-top: 15px;
+}
+
+.buttons-group button {
+    padding: 5px 25px;
+    /* border-radius: 25px; */
+    width: 100px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}

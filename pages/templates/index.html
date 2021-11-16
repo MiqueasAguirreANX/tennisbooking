@@ -7,19 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <script src="{% static 'js/home.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Tennis Booking</title>
     <style>
-        #map {
-            height: 100%;
-        }
         html,
         body {
             height: 100%;
             margin: 0;
             padding: 0;
         }
+        .top-authenticated {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .top-authenticated > div {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+        }
     </style>
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -37,6 +48,7 @@
       
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
+            {% if user.is_authenticated %}
             <a href="{% url 'pages:home' %}" class="navbar-item">
               Home
             </a>
@@ -47,26 +59,34 @@
               </a>
       
               <div class="navbar-dropdown">
-                <a class="navbar-item">
+                <a href="{% url 'pages:create-court' %}" class="navbar-item">
                   Create
                 </a>
-                <a class="navbar-item">
-                  Book
+                <a href="{% url 'pages:all-booked' %}" class="navbar-item">
+                  Booked
                 </a>
               </div>
             </div>
+            {% endif %}
           </div>
       
           <div class="navbar-end">
             <div class="navbar-item">
+              {% if user.is_authenticated %}
+              <div class="top-authenticated">
+                <div class="mx-2">Welcome, {{ user.username }}</div>
+                <a href="{% url 'pages:tennis-logout' %}"" class="button is-danger">Logout</a>
+              </div>
+              {% else %}
               <div class="buttons">
-                <a class="button is-primary">
+                <a href="{% url 'pages:tennis-signup' %}" class="button is-primary">
                   <strong>Sign up</strong>
                 </a>
-                <a class="button is-light">
+                <a href="{% url 'pages:tennis-login' %}" class="button is-light">
                   Log in
                 </a>
               </div>
+              {% endif %}
             </div>
           </div>
         </div>
