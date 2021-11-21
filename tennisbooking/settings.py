@@ -134,7 +134,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # GOOGLE MAPS CONFIG -------------------------------------------------------------
-GOOGLE_API_KEY = ''
+GOOGLE_API_KEY = 'FALSE_KEY'
 # --------------------------------------------------------------------------------
 
 # REST FRAMEWORK SETTINGS -------------------------------------------------------
