@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+{% load static %}
+
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/create-court.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="map-grid">
+    {% csrf_token %}
+    <div id="map"></div>
+    <div class="add-court-panel">
+        <div class="add-court-panel-title">Click right button in the map to add a court in that position</div>
+        <div class="add-court-panel-content"></div>
+    </div>
+</div>
+
+<div class="add-court-modal-background" style="display: none;">
+    <div class="add-court-modal">
+        <div class="add-title mb-4">Are you sure you want to add a court on that position?</div>
+        <div class="field" style="width: 300px;">
+            <label class="label">Court Name</label>
+            <div class="control">
+              <input class="input" type="text" name="court-name" id="court-name">
+            </div>
+            <p class="help">Needs to have more than 3 characters</p>
+        </div>
+        <div class="buttons-group">
+            <button class="button is-success yes-button" disabled>Yes</button>
+            <button class="button is-danger no-button">No</button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block extra_js %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script
+  src="https://maps.googleapis.com/maps/api/js?key={{google_api_key}}&callback=initMap&v=weekly"
+  async
+></script>
+<script src="{% static 'js/create-court.js' %}"></script>
+{% endblock %}

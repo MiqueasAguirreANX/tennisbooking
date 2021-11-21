@@ -1,0 +1,17 @@
+.map-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    height: 100%;
+}
+
+#map {
+    height: 100%;
+}
+
+.back-button {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 18px;
+}

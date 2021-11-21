@@ -1,5 +1,5 @@
 venv
-migrations
 __pycache__
 ngrok.exe
 .env
+db.sqlite3
